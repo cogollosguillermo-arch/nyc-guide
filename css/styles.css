@@ -1,0 +1,143 @@
+/* The NYC Compass - Custom Styles & Micro-interactions */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap');
+
+:root {
+  --nyc-yellow: #f59e0b;
+  --nyc-navy: #0f172a;
+  --nyc-card: #1e293b;
+  --subway-blue: #0039A6;
+  --subway-orange: #FF6319;
+  --subway-light-green: #6CBE45;
+  --subway-brown: #996633;
+  --subway-gray: #A7A9AC;
+  --subway-yellow: #FCCC0A;
+  --subway-red: #EE352E;
+  --subway-dark-green: #00933C;
+  --subway-purple: #B933AD;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #0b0f19;
+  color: #f1f5f9;
+  overflow-x: hidden;
+}
+
+.font-serif-title {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-cinzel {
+  font-family: 'Cinzel', serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #f59e0b;
+}
+
+/* Subway Bullet Badges */
+.subway-bullet {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 700;
+  color: white;
+  margin-right: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+.subway-1, .subway-2, .subway-3 { background-color: var(--subway-red); }
+.subway-4, .subway-5, .subway-6 { background-color: var(--subway-dark-green); }
+.subway-7 { background-color: var(--subway-purple); }
+.subway-A, .subway-C, .subway-E { background-color: var(--subway-blue); }
+.subway-B, .subway-D, .subway-F, .subway-M { background-color: var(--subway-orange); }
+.subway-N, .subway-Q, .subway-R, .subway-W { background-color: var(--subway-yellow); color: black; }
+.subway-J, .subway-Z { background-color: var(--subway-brown); }
+.subway-L { background-color: var(--subway-gray); }
+.subway-S { background-color: #808183; }
+
+/* Backdrop Blur & Glass */
+.glass-panel {
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card {
+  background: rgba(30, 41, 59, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(245, 158, 11, 0.4);
+  box-shadow: 0 16px 30px -10px rgba(0, 0, 0, 0.6), 0 0 20px -5px rgba(245, 158, 11, 0.15);
+}
+
+/* Hero Background Gradients & Effects */
+.hero-gradient {
+  background: linear-gradient(180deg, rgba(11, 15, 25, 0.2) 0%, rgba(11, 15, 25, 0.9) 80%, #0b0f19 100%),
+              url('https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+}
+
+/* Custom Animation Classes */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeInScale 0.25s ease-out forwards;
+}
+
+/* Category Pill Active State */
+.filter-pill.active {
+  background-color: #f59e0b;
+  color: #0f172a;
+  font-weight: 600;
+  border-color: #f59e0b;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35);
+}
+
+/* Drawer Transitions */
+#itineraryDrawer {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#itineraryDrawer.translate-x-full {
+  transform: translateX(100%);
+}
+
+#itineraryDrawer.translate-x-0 {
+  transform: translateX(0%);
+}
+
+/* Toast */
+#toastNotification {
+  transition: all 0.3s ease-out;
+}
